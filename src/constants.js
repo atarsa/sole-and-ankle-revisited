@@ -16,3 +16,16 @@ export const WEIGHTS = {
   medium: 600,
   bold: 800,
 };
+
+// breakpoints in rems
+export const BREAKPOINTS = {
+  phoneMax: 37.5,
+  tabletMax: 59.375,
+  laptopMax: 81.25,
+}
+
+export const QUERIES = {
+  'phone': `(max-width: ${BREAKPOINTS.phoneMax}rem)`,
+  'tablet': `(max-width: ${BREAKPOINTS.tabletMax}rem)`,
+  'laptop': `(max-width: ${BREAKPOINTS.laptopMax}rem)`,
+}
