@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS, WEIGHTS } from '../../constants';
+import { COLORS, WEIGHTS, QUERIES } from '../../constants';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
+import UnstyledButton from '../UnstyledButton';
+import Icon from '../Icon';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -18,18 +20,32 @@ const Header = () => {
     <header>
       <SuperHeader />
       <MainHeader>
-        <Side>
-          <Logo />
-        </Side>
-        <Nav>
-          <NavLink href="/sale">Sale</NavLink>
-          <NavLink href="/new">New&nbsp;Releases</NavLink>
-          <NavLink href="/men">Men</NavLink>
-          <NavLink href="/women">Women</NavLink>
-          <NavLink href="/kids">Kids</NavLink>
-          <NavLink href="/collections">Collections</NavLink>
-        </Nav>
+        <Logo />
         <Side />
+        <DesktopView>
+          <Nav>
+            <NavLink href="/sale">Sale</NavLink>
+            <NavLink href="/new">New&nbsp;Releases</NavLink>
+            <NavLink href="/men">Men</NavLink>
+            <NavLink href="/women">Women</NavLink>
+            <NavLink href="/kids">Kids</NavLink>
+            <NavLink href="/collections">Collections</NavLink>
+          </Nav>
+          <Side />
+        </DesktopView>
+        <LaptopDownView>
+          <UnstyledButton>
+            <Icon id="shopping-bag" strokeWidth={2} />
+          </UnstyledButton>
+
+          <UnstyledButton>
+            <Icon id="search" strokeWidth={2} />
+          </UnstyledButton>
+
+          <UnstyledButton>
+            <Icon id="menu" strokeWidth={2} />
+          </UnstyledButton>
+        </LaptopDownView>
       </MainHeader>
 
       <MobileMenu
@@ -46,6 +62,10 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+
+  @media (${QUERIES.phone}) {
+    padding: 18px 16px;
+  }
 `;
 
 const Nav = styled.nav`
@@ -67,6 +87,30 @@ const NavLink = styled.a`
 
   &:first-of-type {
     color: ${COLORS.secondary};
+  }
+`;
+
+const DesktopView = styled.div`
+  display: flex;
+  flex: 1 auto;
+
+  @media (${QUERIES.tablet}) {
+    display: none;
+  }
+`;
+
+const LaptopDownView = styled.div`
+  display: none;
+
+  @media (${QUERIES.tablet}) {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    gap: 32px;
+  }
+
+  @media (${QUERIES.phone}) {
+    gap: 24px;
   }
 `;
 
