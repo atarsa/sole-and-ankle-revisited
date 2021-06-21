@@ -67,7 +67,7 @@ const MainHeader = styled.div`
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
 
-  @media (${QUERIES.tablet}) {
+  @media (${QUERIES.tabletAndDown}) {
    border-top: 4px solid ${COLORS.gray[900]};
   }
   
@@ -103,7 +103,7 @@ const DesktopView = styled.div`
   display: flex;
   flex: 1 auto;
 
-  @media (${QUERIES.tablet}) {
+  @media (${QUERIES.tabletAndDown}) {
     display: none;
   }
 `;
@@ -111,7 +111,7 @@ const DesktopView = styled.div`
 const LaptopDownView = styled.div`
   display: none;
 
-  @media (${QUERIES.tablet}) {
+  @media (${QUERIES.tabletAndDown}) {
     display: flex;
     justify-content: flex-end;
     flex-grow: 1;
