@@ -7,6 +7,7 @@ import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
 import UnstyledButton from '../UnstyledButton';
 import Icon from '../Icon';
+import VisuallyHidden from '../VisuallyHidden';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -36,14 +37,17 @@ const Header = () => {
         <LaptopDownView>
           <UnstyledButton>
             <Icon id="shopping-bag" strokeWidth={2} />
+            <VisuallyHidden>Open Cart</VisuallyHidden>
           </UnstyledButton>
 
           <UnstyledButton>
             <Icon id="search" strokeWidth={2} />
+            <VisuallyHidden>Search</VisuallyHidden>
           </UnstyledButton>
 
           <UnstyledButton>
             <Icon id="menu" strokeWidth={2} />
+            <VisuallyHidden>Menu</VisuallyHidden>
           </UnstyledButton>
         </LaptopDownView>
       </MainHeader>
@@ -62,6 +66,11 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+
+  @media (${QUERIES.tablet}) {
+   border-top: 4px solid ${COLORS.gray[900]};
+  }
+  
 
   @media (${QUERIES.phone}) {
     padding: 18px 16px;
